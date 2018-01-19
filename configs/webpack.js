@@ -33,23 +33,13 @@ module.exports = {
     template: path.resolve(__dirname, '../src/index.html'),
     filename: path.resolve(__dirname, '../dev/index.html')
   }), new CleanWebpackPlugin([path.resolve(__dirname, '../dev')], {
-    root: path.resolve(__dirname, '../'),
-    exclude: ['vendor']
+    root: path.resolve(__dirname, '../')
   }), new ExtractTextWebpackPlugin({
     filename: '[hash:8][name].css'
-  }), new webpack.DllReferencePlugin({
-    context: '.',
-    manifest: require('../dev/vendor/vendor-manifest.json')
   })],
   resolve: {
     alias: {
       'styles': path.resolve(__dirname, './src/styles')
     }
-  },
-  devtool: 'inline-source-map',
-  watch: true,
-  watchOptions: {
-    aggregateTimeout: 1000,
-    poll: 1500
   }
 }

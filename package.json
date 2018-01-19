@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "official website for mainian company",
   "main": "index.js",
+  "scripts": {
+    "vendor": "webpack --config configs/webpack.vendor.js --progress",
+    "build": "webpack --config configs/webpack.config.js --progress"
+  },
   "repository": "git@github.com:anonymous0374/official-mainian.git",
   "author": "anonymous0374 <377738226@qq.com>",
   "license": "MIT",

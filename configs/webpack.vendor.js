@@ -9,9 +9,9 @@ module.exports = {
     // bootstrapCss: 'bootstrap/dist/css/bootstrap.css'
   },
   output: {
-    filename: '[hash:8][name].js',
-    path: path.resolve(__dirname, '../vendor'),
-    library: '[name].vendor.js'
+    filename: '[name].js',
+    path: path.resolve(__dirname, '../dev/vendor'),
+    library: '[name]'
   },
   module: {
     rules: [{
@@ -25,10 +25,11 @@ module.exports = {
       }]
     }]
   },
-  plugins: [new CleanWebpackPlugin([path.resolve(__dirname, '../vendor')], {
+  plugins: [new CleanWebpackPlugin([path.resolve(__dirname, '../dev/vendor')], {
     root: path.resolve(__dirname, '../')
   }), new webpack.DllPlugin({
-    name: '[name].vendor.js',
-    path: path.resolve(__dirname, '../vendor/vendor-manifest.json')
+    context: '.',
+    name: '[name]',
+    path: path.resolve(__dirname, '../dev/vendor/vendor-manifest.json')
   })]
 }
